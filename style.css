@@ -24,15 +24,18 @@
 body {
     height: 100vh;
     background-color: var(--gray-600); 
+    z-index: 0;
 }
 
 main {
+    display: flex;
     flex-direction: column;
-    justify-content: center;
+    align-items: center;
 }
 
 .top-part {
-    height: 21%;
+    height: 200px;
+    z-index: 1;
     background-color: var(--gray-700);
     display: flex;
 }
@@ -44,6 +47,27 @@ main {
 
 .search-wrapper {
     margin-top: 52px;
+    display: flex;
+    flex-direction: row;
+}
+
+.search-bar {
+    height: 54px;
+    width: 32.5vw;
+    background-color: var(--gray-500);
+    color: var(--gray-300);
+    border-radius: 8px;
+    border: 1px solid var(--gray-700);
+    padding-left: 16px;
+    font-size: 16px;
+}
+
+.search-bar:focus {
+    outline: none;
+    border: none;
+    height: 50px;
+    width: 32.3vw;
+    border: 3px solid var(--blue-dark);
 }
 
 button {
@@ -55,6 +79,7 @@ button {
     border-radius: 8px;
     font-weight: 700;
     color: var(--gray-100);
+    margin-left: 8px;
 }
 
 .add-button {
