@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>TodoListApp</title>
         <link rel="stylesheet" href="style.css">
+        <script src="app.js" defer></script>
     </head>
     <body>
         <div class="top-part"></div>
@@ -12,7 +13,7 @@
             <main>
                 <div class="logo-app"></div>
                 <div class="search-wrapper">
-                    <input type="text" class="search-bar" placeholder="Add a new task">
+                    <input type="text"  placeholder="Add a new task" class="search-bar">
                     <button>Create <span class="add-button"></span> </button>
                 </div>
                 <section class="task-section">
@@ -24,9 +25,10 @@
                         <div class="task-list-icon"></div>
                         <p class="task-list-not-message">You don't have tasks registered yet</p>
                         <p>Create tasks and organize your to-do items</p>
-                        <div>
-                            <input type="checkbox" id="1">
-                            <label for="1">Lorem ipsum, dolor sit amet consectetur adipisicing elit. At ipsa cupiditate odio veritatis ipsam, consectetur sed ipsum vel fuga eligendi vero nobis adipisci quas labore culpa veniam odit. Fuga, quis!</label>
+                        <div class="task-item">
+                            <input type="checkbox" id="1"><span class="checkmark"></span>
+                            <label id="test" for="1">Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.</label>
+                            <div class="trash"></div>
                         </div>
                     </div>
                 </section>

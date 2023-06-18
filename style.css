@@ -19,6 +19,7 @@
     padding: 0;
     font-family: 'Inter', sans-serif;
     font-size: 14px;
+    line-height: 140%;
 }
 
 body {
@@ -27,13 +28,6 @@ body {
     z-index: 0;
 }
 
-main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: -130px;
-    width: 736px;
-}
 
 .top-part {
     height: 200px;
@@ -49,6 +43,14 @@ main {
 
     /* === App === **/
 
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: -130px;
+    width: 736px;
+}
+
 .logo-app {
     width: 126px;
     height: 48px;
@@ -59,11 +61,12 @@ main {
     margin-top: 52px;
     display: flex;
     flex-direction: row;
+    width: 736px;
 }
 
 .search-bar {
     height: 54px;
-    width: 32.5vw;
+    width: 85%;
     background-color: var(--gray-500);
     color: var(--gray-300);
     border-radius: 8px;
@@ -91,6 +94,7 @@ button {
     font-weight: 700;
     color: var(--gray-100);
     margin-left: 8px;
+    cursor: pointer;
 }
 
 .add-button {
@@ -124,6 +128,7 @@ button {
     font-size: 12px;
     font-weight: 700;
     color: var(--gray-200);
+    margin-left: 8px;
 }
 
 .task-list {
@@ -133,13 +138,14 @@ button {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 64px;
+    padding-top: 24px;
 }
 
 .task-list-icon {
     width: 56px;
     height: 56px;
     background: url('./assets/clipboard.svg');
+    margin-top: 64px;
 }
 
 .task-list p {
@@ -152,9 +158,64 @@ button {
     font-weight: 700;
 }
 
+    /* === List Items === **/
+
+.task-item {    
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--gray-500);
+    border-radius: 8px;
+    width: 702px;
+    border: 1px solid #333333;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.06);   
+}
+
+/* === Custom checkbox === **/
+
 input[type="checkbox"] {
-    clip-path: circle(50% at 50% 50%);
-    width: 17.45px;
-    height: 17.45px;
-    accent-color: var(--blue);
+    display: none;
+}
+
+.checkmark {
+    position: relative;
+    height: 15.5px;
+    width: 15.5px;
+    border-radius: 50%;
+}
+
+input[type="checkbox"] ~ .checkmark {
+    border: 2.5px solid var(--blue);
+}
+
+input[type="checkbox"]:checked ~ .checkmark {
+    background-color: var(--purple-dark);
+    border: 2.5px solid var(--purple-dark);
+}
+
+.checkmark::after {
+    top: -5px;
+    width: 5px;
+    height: 10px;
+    left: 2px;
+    color: white;
+}
+
+.checkmark::after {
+    content:'✓';
+    position: absolute;
+    display: none;
+}
+
+.task-list label {
+    width: 87%;
+    color: var(--gray-100);
+}
+
+.trash {
+    width: 19px;
+    height: 19px;
+    background: url('./assets/trash.svg') no-repeat center;
+    cursor: pointer;
+    display: flex;
 }
