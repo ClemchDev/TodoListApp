@@ -41,6 +41,10 @@ body {
     justify-content: center;
 }
 
+.none {
+    display: none !important;
+}
+
     /* === App === **/
 
 main {
@@ -79,7 +83,7 @@ main {
     outline: none;
     border: none;
     height: 50px;
-    width: 32.3vw;
+    width: 85%;
     border: 3px solid var(--blue-dark);
     padding-left: 16px;
 }
@@ -132,13 +136,14 @@ button {
 }
 
 .task-list {
+    position: relative;
     border-top: 1px solid var(--gray-400);
     border-radius: 8px;
     margin-top: 24px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 24px;
+    z-index: 1;
 }
 
 .task-list-icon {
@@ -146,6 +151,12 @@ button {
     height: 56px;
     background: url('./assets/clipboard.svg');
     margin-top: 64px;
+}
+
+.no-task-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .task-list p {
@@ -168,43 +179,18 @@ button {
     border-radius: 8px;
     width: 702px;
     border: 1px solid #333333;
-    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.06);   
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.06);
+    margin-bottom: 12px;  
+    z-index: 2;
 }
 
-/* === Custom checkbox === **/
-
-input[type="checkbox"] {
-    display: none;
-}
-
-.checkmark {
-    position: relative;
-    height: 15.5px;
-    width: 15.5px;
+.checkbox {
+    width: 14.5px;
+    height: 14.5px;
     border-radius: 50%;
-}
-
-input[type="checkbox"] ~ .checkmark {
-    border: 2.5px solid var(--blue);
-}
-
-input[type="checkbox"]:checked ~ .checkmark {
-    background-color: var(--purple-dark);
-    border: 2.5px solid var(--purple-dark);
-}
-
-.checkmark::after {
-    top: -5px;
-    width: 5px;
-    height: 10px;
-    left: 2px;
-    color: white;
-}
-
-.checkmark::after {
-    content:'✓';
-    position: absolute;
-    display: none;
+    border: 2px solid var(--blue);
+    margin-top: 3px;
+    cursor: pointer;
 }
 
 .task-list label {
@@ -218,4 +204,29 @@ input[type="checkbox"]:checked ~ .checkmark {
     background: url('./assets/trash.svg') no-repeat center;
     cursor: pointer;
     display: flex;
+}
+
+.checked .checkbox {
+    background-color: var(--purple-dark);
+    border: 2px solid var(--purple-dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.checked-img {
+    display: none;
+}
+
+.checked .checked-img {
+    display: block;
+    background: url('./assets/checked.svg') no-repeat center;
+    width: 8px;
+    height: 6px;
+    margin-left: 0.2px;
+}
+
+.checked label {
+    text-decoration: line-through;
+    color: var(--gray-300);
 }
