@@ -18,7 +18,7 @@ const taskItem = (id, value) => {
 }
 
 document.addEventListener('click', e => {
-    console.log("test")
+
     let id = 0
 
     if(document.querySelector('.task-list').childElementCount > 1) {
