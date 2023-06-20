@@ -1,3 +1,7 @@
 # A superb functional todo-list application
 
-<img src="./assets/todo.jpg">
+### Languages
+
+[![Languages](https://skillicons.dev/icons?i=html,css,js)](https://skillicons.dev) 
+
+<img src="./assets/todo.jpg" style="width: 500px">
