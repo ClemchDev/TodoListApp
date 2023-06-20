@@ -8,5 +8,5 @@ TodoListApp is a web-based task management application enabling users to create,
 
 ### Models
 
-<img src='./assets/todoEmpty.jpg' style='width: 500px; align-items: center'>
-<img src="./assets/todo.jpg" style="width: 500px; align-items: center">
+<img src='./assets/todoEmpty.jpg' style='width: 300px; align-items: center'>
+<img src="./assets/todo.jpg" style="width: 300px; align-items: center">
