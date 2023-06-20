@@ -6,5 +6,5 @@
 
 ### Models
 
-<img src='./assets/todoEmpty.jpg' style='width: 500px'>
-<img src="./assets/todo.jpg" style="width: 500px">
+<img src='./assets/todoEmpty.jpg' style='width: 500px; align-items: center'>
+<img src="./assets/todo.jpg" style="width: 500px; align-items: center">
