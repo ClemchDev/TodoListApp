@@ -1,4 +1,3 @@
-
 const taskItem = (id, value) => {
     // check if 'value' is an empty string
     if(!(value.length !== 0 && ((value[0] && value[value.length - 1]) != ' '))) return;
@@ -18,8 +17,9 @@ const taskItem = (id, value) => {
     trash.classList.add('trash');
 }
 
-
 document.addEventListener('click', e => {
+    console.log("test")
+    let id = 0
 
     if(document.querySelector('.task-list').childElementCount > 1) {
         document.querySelector('.no-task-list').classList.add('none')
@@ -27,20 +27,20 @@ document.addEventListener('click', e => {
         document.querySelector('.no-task-list').classList.remove('none')
     }
 
-    console.log(document.querySelector('.task-list'))
-
     document.querySelector('.search-bar-button').addEventListener('click', e => {
         const value = document.querySelector('.search-bar').value;
 
         document.querySelector('.search-bar').value = '';
-        let i = 0
-        taskItem(i++, value)
+        
+        id++
+        taskItem(id, value)
+        
     })        
     
     document.querySelectorAll('.checkbox').forEach(element => {
         
         element.addEventListener('click', e => {
-
+           
             const parentElement = e.target.parentNode;
 
             if(parentElement.classList.contains('checked')) {
@@ -48,10 +48,20 @@ document.addEventListener('click', e => {
             } else {
                 parentElement.classList.add('checked')
             }
-        })    
-        // quand clique sur checked-img => remonte à span et met l'attribut checked à span
-        // je veux que ça puisse mettre uniquement à task-list
+            updateData(); 
+            e.stopPropagation();
+        })
 
+        document.querySelectorAll('.checked-img').forEach(element => {
+            element.addEventListener('click', e => {
+                
+                const parentElement = e.target.parentNode.parentNode;
+
+                parentElement.classList.remove('checked')
+                updateData();
+                e.stopPropagation()
+            })
+        })
     })
     
     document.querySelectorAll('.trash').forEach(element => {
@@ -59,4 +69,21 @@ document.addEventListener('click', e => {
             e.originalTarget.parentElement.remove()
         })
     })
+    
+    updateData()
 });
+
+const updateData = () => {
+    const createdTasks = document.querySelector('.task-list').childElementCount - 1;
+    const completedTasks = document.querySelectorAll('.checked').length
+
+    document.querySelector('.created-tasks').innerText = createdTasks;
+
+    if(!(completedTasks === 0 && createdTasks === 0)) {
+        document.querySelector('.completed-tasks').innerText = completedTasks + ' de '+ createdTasks;
+    } else {
+        document.querySelector('.completed-tasks').innerText = '0';
+    }
+}
+
+//pb de stopPropagation

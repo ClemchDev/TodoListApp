@@ -230,3 +230,22 @@ button {
     text-decoration: line-through;
     color: var(--gray-300);
 }
+
+@media screen and (max-width: 780px) {
+    main {
+        width: 90%;
+    }
+
+    .search-wrapper {
+        width: 100%;
+    }
+
+    .task-item {
+        width: 90%;
+    }
+
+    .task-item label {
+        line-break: anywhere;
+        width: 75%;
+    }
+}
